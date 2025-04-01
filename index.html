@@ -9,61 +9,58 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fafafa, #eaeaea);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 520px;
-      width: 90%;
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.05);
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    h1, h2, p {
-      text-align: center;
+      background: #f6f6f6;
       color: #333;
     }
-    h1 { font-size: 1.8rem; margin-bottom: 20px; }
-    h2 { font-size: 1.2rem; margin-bottom: 10px; }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    p {
+      line-height: 1.6;
+    }
     .button-main {
       display: block;
-      margin: 20px auto;
+      margin: 30px auto 10px;
       padding: 12px 25px;
       background: #000;
       color: white;
-      border-radius: 12px;
+      border: none;
+      border-radius: 8px;
       font-size: 1rem;
-      text-decoration: none;
-      text-align: center;
       cursor: pointer;
+      text-align: center;
+      text-decoration: none;
     }
-    .question, #quiz, #result {
-      margin-top: 20px;
+    .question {
+      margin-bottom: 30px;
     }
     .answers button {
-      display: block;
       width: 100%;
       padding: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       border: none;
-      border-radius: 12px;
-      background: #f0f0f0;
+      border-radius: 8px;
+      background: #eaeaea;
       font-size: 1rem;
-      transition: background 0.3s, transform 0.2s;
       cursor: pointer;
+      transition: background 0.3s;
     }
     .answers button:hover {
-      background: #ddd;
-      transform: scale(1.02);
+      background: #d5d5d5;
     }
     #result p {
       margin-bottom: 20px;
@@ -72,7 +69,7 @@
       display: block;
       margin: 10px 0;
       padding: 12px 20px;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 1rem;
       text-decoration: none;
       text-align: center;
@@ -82,7 +79,7 @@
       color: white;
     }
     .catalogo-btn {
-      background: #333;
+      background: #444;
       color: white;
     }
   </style>
@@ -90,10 +87,13 @@
 <body>
   <div class="container" id="start">
     <h1>La tua essenza perfetta</h1>
-    <p>Non siamo qui per indovinare il tuo profumo ideale.<br>
-    Ma possiamo aiutarti a capirlo, con qualche domanda leggera e personale.<br><br>
-    Alla fine del test ti descriveremo il tipo di atmosfera che ti rappresenta. Se vorrai, potrai ricevere un campioncino gratuito o dare un'occhiata alle nostre proposte.<br><br>
-    Nessuna promessa magica. Solo il piacere di conoscerci meglio.</p>
+    <p>
+      Non siamo qui per indovinare il tuo profumo ideale. <br>
+      Ma possiamo aiutarti a capirlo, con qualche domanda semplice. <br><br>
+      Alla fine ti descriveremo che tipo di atmosfera sembra rappresentarti di più. <br>
+      Se vorrai, potrai ricevere un campioncino gratuito o dare un’occhiata alle nostre proposte. <br><br>
+      Nessuna promessa, nessun trucco. Solo il piacere di conoscerci meglio.
+    </p>
     <a class="button-main" onclick="startTest()">Inizia il test</a>
   </div>
 

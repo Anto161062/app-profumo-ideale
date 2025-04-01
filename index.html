@@ -9,23 +9,23 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #fff, #f3f3f3);
+      background: linear-gradient(to bottom right, #fafafa, #eaeaea);
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
     .container {
-      max-width: 500px;
+      max-width: 520px;
       width: 90%;
       background: white;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
-      animation: fadeIn 0.6s ease-in-out;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+      animation: fadeIn 0.5s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
     h1, h2, p {
@@ -90,10 +90,11 @@
 <body>
   <div class="container" id="start">
     <h1>La tua essenza perfetta</h1>
-    <p>Non esiste un solo profumo perfetto. Esiste il tuo.<br>
-    Scoprilo in pochi istanti con un test sensoriale pensato per rivelare ciò che ti rappresenta davvero.<br><br>
-    Alla fine saprai com’è il tuo profumo ideale… e ti diremo se lo abbiamo già creato per te.</p>
-    <a class="button-main" onclick="startTest()">Inizia il viaggio</a>
+    <p>Non siamo qui per indovinare il tuo profumo ideale.<br>
+    Ma possiamo aiutarti a capirlo, con qualche domanda leggera e personale.<br><br>
+    Alla fine del test ti descriveremo il tipo di atmosfera che ti rappresenta. Se vorrai, potrai ricevere un campioncino gratuito o dare un'occhiata alle nostre proposte.<br><br>
+    Nessuna promessa magica. Solo il piacere di conoscerci meglio.</p>
+    <a class="button-main" onclick="startTest()">Inizia il test</a>
   </div>
 
   <div class="container" id="quiz" style="display:none;"></div>
@@ -102,24 +103,24 @@
   <script>
     const quizData = [
       {
-        question: "Quale colore ti rappresenta di più?",
-        answers: ["Rosso rubino", "Azzurro mare", "Verde bosco", "Arancione acceso", "Bianco puro"]
+        question: "Che tipo di energia vuoi che si respiri nel tuo ambiente?",
+        answers: ["Serenità profonda", "Carica ed entusiasmo", "Eleganza e ordine", "Natura e freschezza", "Dolcezza e calore"]
       },
       {
-        question: "Che atmosfera vuoi creare nel tuo ambiente?",
-        answers: ["Fresca e rigenerante", "Accogliente e rilassante", "Energizzante e stimolante", "Naturale e armoniosa", "Sofisticata e avvolgente"]
+        question: "Il tuo spazio ideale dovrebbe profumare come...",
+        answers: ["Un giardino dopo la pioggia", "Una spa immersa nel silenzio", "Una casa piena di vita", "Una stanza al mare", "Una domenica mattina sotto le coperte"]
       },
       {
-        question: "Se dovessi descrivere il tuo profumo in una parola, quale sarebbe?",
-        answers: ["Emozionante", "Avvolgente", "Frizzante", "Rilassante", "Misterioso"]
+        question: "Quando torni a casa, vuoi sentirti...",
+        answers: ["Rilassato e al sicuro", "Ispirato e lucido", "Calmo e leggero", "Energico e positivo", "Coccolato e accolto"]
       },
       {
-        question: "Quale scenario ti fa sentire più a tuo agio?",
-        answers: ["Una spiaggia al tramonto", "Un bosco dopo la pioggia", "Un elegante salotto", "Una mattina di sole", "Una notte stellata"]
+        question: "Che tipo di emozione vuoi lasciare nell’aria?",
+        answers: ["Armonia e equilibrio", "Una scossa di vitalità", "Eleganza raffinata", "Natura autentica", "Dolcezza persistente"]
       },
       {
-        question: "Scegli una sensazione che vuoi evocare ogni giorno:",
-        answers: ["Relax assoluto", "Energia pura", "Comfort e sicurezza", "Eleganza raffinata", "Un tocco di mistero"]
+        question: "Cosa non dovrebbe mai mancare nei tuoi tessuti?",
+        answers: ["Freschezza di bucato", "Note floreali", "Un fondo dolce e cremoso", "Sentori legnosi e verdi", "Un profumo pulito e brillante"]
       }
     ];
 
@@ -158,13 +159,13 @@
 
     function showResult() {
       quiz.style.display = 'none';
-      const summary = `Il tuo profumo ideale unisce <strong>${userAnswers[1].toLowerCase()}</strong> e <strong>${userAnswers[4].toLowerCase()}</strong>, con un tocco di <strong>${userAnswers[2].toLowerCase()}</strong>.<br><br>
-        Questo equilibrio olfattivo racconta chi sei davvero.<br><br>
-        Vuoi sapere se lo abbiamo già creato per te?`;
+      const summary = `In base alle tue risposte, ti piace vivere in un ambiente che trasmette <strong>${userAnswers[0].toLowerCase()}</strong> e lascia nell’aria <strong>${userAnswers[3].toLowerCase()}</strong>.<br><br>
+        L’atmosfera che immagini profuma come <em>${userAnswers[1].toLowerCase()}</em> e ti fa sentire <strong>${userAnswers[2].toLowerCase()}</strong>.<br><br>
+        Se vuoi, possiamo consigliarti qualche profumo adatto oppure mandarti un campioncino gratuito.`;
       result.innerHTML = `
         <p>${summary}</p>
         <div class="btn-group">
-          <a class="whatsapp-btn" href="https://wa.me/393717771328?text=Ho+fatto+il+test+e+voglio+scoprire+la+mia+essenza+perfetta" target="_blank">Scrivimi su WhatsApp</a>
+          <a class="whatsapp-btn" href="https://wa.me/393717771328?text=Ho+fatto+il+test+e+vorrei+ricevere+un+campioncino+oppure+un+consiglio+sul+mio+profumo+ideale" target="_blank">Scrivimi su WhatsApp</a>
           <a class="catalogo-btn" href="https://anto161062.github.io/catalogo/" target="_blank">Guarda il catalogo</a>
         </div>
       `;

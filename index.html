@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il tuo profumo ideale</title>
+  <title>La tua essenza perfetta</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to bottom right, #fff, #f3f3f3);
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff, #f3f3f3);
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
     .container {
-      max-width: 480px;
+      max-width: 500px;
       width: 90%;
       background: white;
       padding: 30px;
@@ -28,19 +28,26 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    h1 {
+    h1, h2, p {
       text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
       color: #333;
     }
-    .question {
-      margin-bottom: 20px;
+    h1 { font-size: 1.8rem; margin-bottom: 20px; }
+    h2 { font-size: 1.2rem; margin-bottom: 10px; }
+    .button-main {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 25px;
+      background: #000;
+      color: white;
+      border-radius: 12px;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
     }
-    .question h2 {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      color: #555;
+    .question, #quiz, #result {
+      margin-top: 20px;
     }
     .answers button {
       display: block;
@@ -58,35 +65,39 @@
       background: #ddd;
       transform: scale(1.02);
     }
-    #result {
-      display: none;
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1.1rem;
-      color: #444;
+    #result p {
+      margin-bottom: 20px;
     }
-    a.whatsapp-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 25px;
-      background: #25d366;
-      color: white;
-      border-radius: 12px;
+    .btn-group a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px 20px;
+      border-radius: 10px;
       font-size: 1rem;
       text-decoration: none;
-      transition: background 0.3s ease;
+      text-align: center;
     }
-    a.whatsapp-btn:hover {
-      background: #1ebe5d;
+    .whatsapp-btn {
+      background: #25d366;
+      color: white;
+    }
+    .catalogo-btn {
+      background: #333;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Scopri il tuo profumo ideale</h1>
-    <div id="quiz"></div>
-    <div id="result"></div>
+  <div class="container" id="start">
+    <h1>La tua essenza perfetta</h1>
+    <p>Non esiste un solo profumo perfetto. Esiste il tuo.<br>
+    Scoprilo in pochi istanti con un test sensoriale pensato per rivelare ciò che ti rappresenta davvero.<br><br>
+    Alla fine saprai com’è il tuo profumo ideale… e ti diremo se lo abbiamo già creato per te.</p>
+    <a class="button-main" onclick="startTest()">Inizia il viaggio</a>
   </div>
+
+  <div class="container" id="quiz" style="display:none;"></div>
+  <div class="container" id="result" style="display:none;"></div>
 
   <script>
     const quizData = [
@@ -117,6 +128,12 @@
     const quiz = document.getElementById('quiz');
     const result = document.getElementById('result');
 
+    function startTest() {
+      document.getElementById('start').style.display = 'none';
+      quiz.style.display = 'block';
+      showQuestion(currentQuestion);
+    }
+
     function showQuestion(index) {
       const q = quizData[index];
       quiz.innerHTML = `
@@ -141,16 +158,18 @@
 
     function showResult() {
       quiz.style.display = 'none';
-      const summary = `Hai un profumo nell'anima che unisce <strong>${userAnswers[1].toLowerCase()}</strong> e <strong>${userAnswers[4].toLowerCase()}</strong>, con un tocco di <strong>${userAnswers[2].toLowerCase()}</strong>.<br><br>Vuoi sapere qual è davvero il tuo profumo ideale? Clicca qui sotto.`;
+      const summary = `Il tuo profumo ideale unisce <strong>${userAnswers[1].toLowerCase()}</strong> e <strong>${userAnswers[4].toLowerCase()}</strong>, con un tocco di <strong>${userAnswers[2].toLowerCase()}</strong>.<br><br>
+        Questo equilibrio olfattivo racconta chi sei davvero.<br><br>
+        Vuoi sapere se lo abbiamo già creato per te?`;
       result.innerHTML = `
         <p>${summary}</p>
-        <a class="whatsapp-btn" href="https://wa.me/393717771328?text=Ho+fatto+il+test+e+voglio+scoprire+il+mio+profumo+ideale" target="_blank">Scoprilo ora su WhatsApp</a>
+        <div class="btn-group">
+          <a class="whatsapp-btn" href="https://wa.me/393717771328?text=Ho+fatto+il+test+e+voglio+scoprire+la+mia+essenza+perfetta" target="_blank">Scrivimi su WhatsApp</a>
+          <a class="catalogo-btn" href="https://anto161062.github.io/catalogo/" target="_blank">Guarda il catalogo</a>
+        </div>
       `;
       result.style.display = 'block';
     }
-
-    // Avvio
-    showQuestion(currentQuestion);
   </script>
 </body>
 </html>

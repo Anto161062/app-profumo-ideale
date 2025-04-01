@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il tuo profumo ideale</title>
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+    h1 { text-align: center; font-size: 2rem; margin-bottom: 20px; }
+    .question { margin-bottom: 20px; }
+    .question h2 { font-size: 1.2rem; margin-bottom: 10px; }
+    .answers button { display: block; width: 100%; padding: 10px; margin-bottom: 10px; border: none; border-radius: 8px; background: #eee; cursor: pointer; transition: 0.3s; }
+    .answers button:hover { background: #ddd; }
+    #result { display: none; text-align: center; margin-top: 30px; font-size: 1.1rem; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Scopri il tuo profumo ideale</h1>
+    <div id="quiz"></div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Quale colore ti rappresenta di più?",
+        answers: ["Rosso rubino", "Azzurro mare", "Verde bosco", "Arancione acceso", "Bianco puro"]
+      },
+      {
+        question: "Che atmosfera vuoi creare nel tuo ambiente?",
+        answers: ["Fresca e rigenerante", "Accogliente e rilassante", "Energizzante e stimolante", "Naturale e armoniosa", "Sofisticata e avvolgente"]
+      },
+      {
+        question: "Se dovessi descrivere il tuo profumo in una parola, quale sarebbe?",
+        answers: ["Emozionante", "Avvolgente", "Frizzante", "Rilassante", "Misterioso"]
+      },
+      {
+        question: "Quale scenario ti fa sentire più a tuo agio?",
+        answers: ["Una spiaggia al tramonto", "Un bosco dopo la pioggia", "Un elegante salotto", "Una mattina di sole", "Una notte stellata"]
+      },
+      {
+        question: "Scegli una sensazione che vuoi evocare ogni giorno:",
+        answers: ["Relax assoluto", "Energia pura", "Comfort e sicurezza", "Eleganza raffinata", "Un tocco di mistero"]
+      }
+    ];
+
+    let currentQuestion = 0;
+    const userAnswers = [];
+    const quiz = document.getElementById('quiz');
+    const result = document.getElementById('result');
+
+    function showQuestion(index) {
+      const q = quizData[index];
+      quiz.innerHTML = `
+        <div class="question">
+          <h2>${q.question}</h2>
+          <div class="answers">
+            ${q.answers.map(answer => `<button onclick="selectAnswer('${answer}')">${answer}</button>`).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function selectAnswer(answer) {
+      userAnswers.push(answer);
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        showQuestion(currentQuestion);
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      quiz.style.display = 'none';
+      const summary = `Hai un profumo nell'anima che unisce ${userAnswers[1].toLowerCase()} e ${userAnswers[4].toLowerCase()}, con un tocco di ${userAnswers[2].toLowerCase()}. Vuoi sapere qual è davvero il tuo profumo ideale? Clicca qui sotto.`;
+      result.innerHTML = `
+        <p>${summary}</p>
+        <a href="https://wa.me/393717771328?text=Ho+fatto+il+test+e+voglio+scoprire+il+mio+profumo+ideale" target="_blank" style="display:inline-block;margin-top:20px;padding:10px 20px;background:#000;color:#fff;border-radius:8px;text-decoration:none;">Scoprilo ora</a>
+      `;
+      result.style.display = 'block';
+    }
+
+    // Avvio
+    showQuestion(currentQuestion);
+  </script>
+</body>
+</html>

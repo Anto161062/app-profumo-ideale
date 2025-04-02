@@ -5,62 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La tua essenza perfetta</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f6f6f6;
-      color: #333;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: linear-gradient(to bottom right, #f5f5f5, #e0e0e0);
+      color: #222;
     }
     .container {
       max-width: 600px;
       margin: 40px auto;
       background: #fff;
-      padding: 30px;
+      padding: 40px;
       border-radius: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+      font-size: 1.9rem;
+      margin-bottom: 24px;
       text-align: center;
     }
     h2 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
     }
     p {
+      font-size: 1rem;
       line-height: 1.6;
+      text-align: center;
     }
     .button-main {
       display: block;
-      margin: 30px auto 10px;
-      padding: 12px 25px;
-      background: #000;
+      width: 100%;
+      padding: 14px;
+      background: #111;
       color: white;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      text-align: center;
-      text-decoration: none;
+      margin-top: 30px;
     }
     .question {
       margin-bottom: 30px;
     }
     .answers button {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
       border: none;
       border-radius: 8px;
-      background: #eaeaea;
+      background: #f1f1f1;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s;
     }
     .answers button:hover {
-      background: #d5d5d5;
+      background: #dcdcdc;
     }
     #result p {
       margin-bottom: 20px;
@@ -68,7 +71,7 @@
     .btn-group a {
       display: block;
       margin: 10px 0;
-      padding: 12px 20px;
+      padding: 14px 20px;
       border-radius: 8px;
       font-size: 1rem;
       text-decoration: none;
@@ -79,7 +82,7 @@
       color: white;
     }
     .catalogo-btn {
-      background: #444;
+      background: #333;
       color: white;
     }
   </style>
@@ -88,13 +91,12 @@
   <div class="container" id="start">
     <h1>La tua essenza perfetta</h1>
     <p>
-      Non siamo qui per indovinare il tuo profumo ideale. <br>
-      Ma possiamo aiutarti a capirlo, con qualche domanda semplice. <br><br>
-      Alla fine ti descriveremo che tipo di atmosfera sembra rappresentarti di più. <br>
-      Se vorrai, potrai ricevere un campioncino gratuito o dare un’occhiata alle nostre proposte. <br><br>
-      Nessuna promessa, nessun trucco. Solo il piacere di conoscerci meglio.
+      Non siamo qui per indovinare il tuo profumo ideale.<br>
+      Possiamo aiutarti a capirlo con qualche domanda semplice.<br><br>
+      Alla fine ti descriveremo il tipo di atmosfera che sembra rappresentarti. Se vorrai, potrai ricevere un campioncino o guardare le nostre proposte.<br><br>
+      Nessuna promessa. Nessun trucco. Solo il piacere di conoscerci meglio.
     </p>
-    <a class="button-main" onclick="startTest()">Inizia il test</a>
+    <button class="button-main" onclick="startTest()">Inizia il test</button>
   </div>
 
   <div class="container" id="quiz" style="display:none;"></div>
